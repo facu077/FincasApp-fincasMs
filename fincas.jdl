@@ -1,0 +1,83 @@
+entity Finca {
+	nombre String required,
+    userLogin String required
+}
+
+entity Cosecha
+{
+	producto String required,
+    peso Long required
+}
+
+entity Ubicacion
+{
+	departamento Departamento required,
+    calle String,
+    numero Long,
+    descripcion String
+}
+
+entity Campo
+{
+	nombre String required,
+    sembrado Boolean,
+    fechaPlantado Instant,
+    fechaCosecha Instant,
+    producto String,
+    tamano Long
+}
+
+entity Encargado
+{
+	nombre String required,
+    apellido String,
+    email String,
+    telefono String
+}
+
+entity Herramienta
+{
+	nombre String required,
+    tipo TipoHerramienta required,
+    descripcion String
+}
+
+enum Departamento
+{
+	MENDOZA, GUAYMALLEN, LAS HERAS, LAVALLE, JUNIN, LA PAZ, MAIPU, RIVADAVIA, SANTA ROSA, SAN MARTIN, GODOY CRUZ, LUJAN DE CUYO, SAN CARLOS, TUNUYAN, TUPUNGATO, GENERAL ALVEAR, MALARGUE, SAN RAFAEL
+}
+
+enum TipoHerramienta
+{
+    VEHICULO, MAQUINA, OTRO
+}
+
+relationship OneToOne
+{
+	Finca{ubicacion} to Ubicacion
+}
+
+relationship OneToMany
+{
+	Finca{campo} to Campo
+}
+
+relationship OneToMany
+{
+	Finca{cosecha} to Cosecha
+}
+
+relationship OneToMany
+{
+	Finca{herramienta} to Herramienta
+}
+
+relationship OneToOne
+{
+	Finca{encargado} to Encargado
+}
+
+
+// Set pagination options
+paginate Finca with pagination
+

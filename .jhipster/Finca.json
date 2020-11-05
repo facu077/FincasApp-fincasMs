@@ -1,0 +1,67 @@
+{
+  "name": "Finca",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "userLogin",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "ubicacion",
+      "otherEntityRelationshipName": "finca",
+      "relationshipName": "ubicacion",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "encargado",
+      "otherEntityRelationshipName": "finca",
+      "relationshipName": "encargado",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "campo",
+      "otherEntityRelationshipName": "finca",
+      "relationshipName": "campo"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "cosecha",
+      "otherEntityRelationshipName": "finca",
+      "relationshipName": "cosecha"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "herramienta",
+      "otherEntityRelationshipName": "finca",
+      "relationshipName": "herramienta"
+    }
+  ],
+  "changelogDate": "20201105231458",
+  "entityTableName": "finca",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "fincasMs",
+  "applications": "*",
+  "microserviceName": "fincasMs"
+}

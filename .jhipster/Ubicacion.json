@@ -1,0 +1,38 @@
+{
+  "name": "Ubicacion",
+  "fields": [
+    {
+      "fieldName": "departamento",
+      "fieldType": "Departamento",
+      "fieldValues": "MENDOZA,GUAYMALLEN,LAS,HERAS,LAVALLE,JUNIN,LA,PAZ,MAIPU,RIVADAVIA,SANTA,ROSA,SAN,MARTIN,GODOY,CRUZ,LUJAN,DE,CUYO,CARLOS,TUNUYAN,TUPUNGATO,GENERAL,ALVEAR,MALARGUE,RAFAEL",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "calle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numero",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "descripcion",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20201105231658",
+  "entityTableName": "ubicacion",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "fincasMs",
+  "applications": "*",
+  "microserviceName": "fincasMs"
+}

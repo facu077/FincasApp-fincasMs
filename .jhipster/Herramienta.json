@@ -1,0 +1,45 @@
+{
+  "name": "Herramienta",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "tipo",
+      "fieldType": "TipoHerramienta",
+      "fieldValues": "VEHICULO,MAQUINA,OTRO",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "descripcion",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "finca",
+      "otherEntityRelationshipName": "herramienta",
+      "relationshipName": "finca",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201105231958",
+  "entityTableName": "herramienta",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "fincasMs",
+  "applications": "*",
+  "microserviceName": "fincasMs"
+}

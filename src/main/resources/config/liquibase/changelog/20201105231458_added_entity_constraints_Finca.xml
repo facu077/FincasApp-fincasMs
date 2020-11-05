@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Finca.
+    -->
+    <changeSet id="20201105231458-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="ubicacion_id"
+                                 baseTableName="finca"
+                                 constraintName="fk_finca_ubicacion_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ubicacion"/>
+
+        <addForeignKeyConstraint baseColumnNames="encargado_id"
+                                 baseTableName="finca"
+                                 constraintName="fk_finca_encargado_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="encargado"/>
+
+    </changeSet>
+</databaseChangeLog>

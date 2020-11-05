@@ -1,0 +1,40 @@
+{
+  "name": "Cosecha",
+  "fields": [
+    {
+      "fieldName": "producto",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "peso",
+      "fieldType": "Long",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "finca",
+      "otherEntityRelationshipName": "cosecha",
+      "relationshipName": "finca",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201105231558",
+  "entityTableName": "cosecha",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "fincasMs",
+  "applications": "*",
+  "microserviceName": "fincasMs"
+}

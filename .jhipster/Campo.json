@@ -1,0 +1,53 @@
+{
+  "name": "Campo",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "sembrado",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "fechaPlantado",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "fechaCosecha",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "producto",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tamano",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "finca",
+      "otherEntityRelationshipName": "campo",
+      "relationshipName": "finca",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201105231758",
+  "entityTableName": "campo",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "fincasMs",
+  "applications": "*",
+  "microserviceName": "fincasMs"
+}

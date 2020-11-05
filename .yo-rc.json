@@ -1,0 +1,39 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "ar.edu.um.fincasapp.fincasms"
+    },
+    "jhipsterVersion": "6.10.1",
+    "applicationType": "microservice",
+    "baseName": "fincasMs",
+    "packageName": "ar.edu.um.fincasapp.fincasms",
+    "packageFolder": "ar/edu/um/fincasapp/fincasms",
+    "serverPort": "8090",
+    "authenticationType": "uaa",
+    "uaaBaseName": "fincasAppUaa",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": true,
+    "jwtSecretKey": "ZmFhNWE3YzZjNDczOWRkYjliYmU0NzE3NjNlOWFjM2IxZTRmZjU3YWI0ZmJkZTJiZjk2YmRkY2ZhZTFiYTg3MjE4YjE5MDIxOWMwYzU0M2FmNjNjNTRlYmNjZjg5ODM4YmIzODU5OWQzY2MyZjUzNWZjZWMwYTIzYTMxZDhhMjQ=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1604618008056,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}

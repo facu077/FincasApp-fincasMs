@@ -43,4 +43,9 @@ node {
             sh "./mvnw -ntp jib:build"
         }
     }
+
+    def pomVersion = readMavenPom().version
+    stage('Deploy') {
+        sh "kubectl set image deployment/fincasms fincasms-app=facu077/fincasms:${pomVersion} --namespace=default"
+    }
 }

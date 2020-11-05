@@ -5,7 +5,7 @@
 
     <groupId>ar.edu.um.fincasapp.fincasms</groupId>
     <artifactId>fincas-ms</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <packaging>jar</packaging>
     <name>Fincas Ms</name>
 
@@ -616,7 +616,15 @@
                             <image>adoptopenjdk:11-jre-hotspot</image>
                         </from>
                         <to>
-                            <image>fincasms:latest</image>
+                            <image>facu077/fincasms</image>
+                            <tags>
+                                <tag>${project.version}</tag>
+                                <tag>latest</tag>
+                            </tags>
+                            <auth>
+                                <username>${DOCKER_REGISTRY_USER}</username>
+                                <password>${DOCKER_REGISTRY_PWD}</password>
+                            </auth>
                         </to>
                         <container>
                             <entrypoint>

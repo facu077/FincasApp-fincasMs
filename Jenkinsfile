@@ -43,8 +43,4 @@ node {
             sh "./mvnw -ntp jib:build"
         }
     }
-    // def pomVersion = readMavenPom().version
-    // stage('Deploy') {
-    //     sh "kubectl set image deployment/fincasappuaa fincasappuaa-app=facu077/fincasappuaa:${pomVersion} --namespace=test"
-    // }
 }

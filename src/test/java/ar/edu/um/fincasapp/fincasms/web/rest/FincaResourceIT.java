@@ -34,7 +34,7 @@ public class FincaResourceIT {
     private static final String DEFAULT_NOMBRE = "AAAAAAAAAA";
     private static final String UPDATED_NOMBRE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_USER_LOGIN = "AAAAAAAAAA";
+    private static final String DEFAULT_USER_LOGIN = "user";
     private static final String UPDATED_USER_LOGIN = "BBBBBBBBBB";
 
     @Autowired
@@ -168,7 +168,7 @@ public class FincaResourceIT {
             .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE)))
             .andExpect(jsonPath("$.[*].userLogin").value(hasItem(DEFAULT_USER_LOGIN)));
     }
-    
+
     @Test
     @Transactional
     public void getFinca() throws Exception {

@@ -2,6 +2,7 @@ package ar.edu.um.fincasapp.fincasms.web.rest;
 
 import ar.edu.um.fincasapp.fincasms.domain.Finca;
 import ar.edu.um.fincasapp.fincasms.repository.FincaRepository;
+import ar.edu.um.fincasapp.fincasms.service.FincasService;
 import ar.edu.um.fincasapp.fincasms.web.rest.errors.BadRequestAlertException;
 
 import io.github.jhipster.web.util.HeaderUtil;
@@ -41,28 +42,11 @@ public class FincaResource {
     private String applicationName;
 
     private final FincaRepository fincaRepository;
+    private final FincasService fincasService;
 
-    public FincaResource(FincaRepository fincaRepository) {
+    public FincaResource(FincaRepository fincaRepository, FincasService fincasService) {
         this.fincaRepository = fincaRepository;
-    }
-
-    /**
-     * {@code POST  /fincas} : Create a new finca.
-     *
-     * @param finca the finca to create.
-     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new finca, or with status {@code 400 (Bad Request)} if the finca has already an ID.
-     * @throws URISyntaxException if the Location URI syntax is incorrect.
-     */
-    @PostMapping("/fincas")
-    public ResponseEntity<Finca> createFinca(@Valid @RequestBody Finca finca) throws URISyntaxException {
-        log.debug("REST request to save Finca : {}", finca);
-        if (finca.getId() != null) {
-            throw new BadRequestAlertException("A new finca cannot already have an ID", ENTITY_NAME, "idexists");
-        }
-        Finca result = fincaRepository.save(finca);
-        return ResponseEntity.created(new URI("/api/fincas/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
-            .body(result);
+        this.fincasService = fincasService;
     }
 
     /**
@@ -125,4 +109,54 @@ public class FincaResource {
         fincaRepository.deleteById(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
     }
+
+    /**
+     * {@code POST  /fincas} : Create a new finca.
+     *
+     * @param finca the finca to create.
+     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new finca,
+     * or with status {@code 400 (Bad Request)} if the finca has already an ID.
+     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     */
+    @PostMapping("/fincas")
+    public ResponseEntity<Finca> createFinca(@Valid @RequestBody Finca finca) throws URISyntaxException {
+        log.debug("REST request to save Finca : {}", finca);
+        Finca result = this.fincasService.addFinca(finca);
+        return ResponseEntity.created(new URI("/api/fincas/" + result.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert(
+                applicationName,
+                false,
+                ENTITY_NAME,
+                result.getId().toString()))
+            .body(result);
+    }
+
+    /**
+     * {@code GET  /fincas/currentuser} : get all the fincas of the current user.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of fincas in body.
+     */
+    @GetMapping("/fincas/currentuser")
+    public ResponseEntity<List<Finca>> getCurrentUserFincas() {
+        log.debug("REST request to get all of currentUser Fincas");
+        List<Finca> fincas = this.fincasService.getCurrentUserFincas();
+        return ResponseEntity.ok().body(fincas);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

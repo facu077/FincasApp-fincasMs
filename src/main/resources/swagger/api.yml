@@ -1,20 +1,67 @@
-# API-first development with OpenAPI
-# This file will be used at compile time to generate Spring-MVC endpoint stubs using openapi-generator
-openapi: '3.0.1'
+openapi: '3.0.0'
 info:
-  title: 'fincasMs'
-  version: 0.0.1
+  title: FincasMs API's
+  version: 1.0.0
 servers:
   - url: http://localhost:8090/api
     description: Development server
   - url: https://localhost:8090/api
     description: Development server with TLS Profile
-paths: {}
-components:
-  responses:
-    Problem:
-      description: error occurred - see status code and problem object for more information.
-      content:
-        'application/problem+json':
+paths:
+  /fincas/userFincas/{userId}:
+    get:
+      summary: List all fincas of a user
+      operationId: getFincasByUserId
+      tags:
+        - fincas
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: The id of the user owner of the fincas
           schema:
-            $ref: 'https://opensource.zalando.com/problem/schema.yaml#/Problem'
+            type: string
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Fincas'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    Finca:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        userLogin:
+          type: string
+      required:
+        - id
+        - nombre
+        - userLogin
+    Fincas:
+      type: array
+      items:
+        $ref: '#/components/schemas/Finca'
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string

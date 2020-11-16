@@ -36,7 +36,7 @@ public class FincasService {
         }
         if (finca.getId() != null)
         {
-            // throw new BadRequestAlertException("A new finca cannot already have an ID", ENTITY_NAME, "idexists");
+            throw new BadRequestAlertException("A new finca cannot already have an ID", ENTITY_NAME, "idexists");
         }
         finca.setUserLogin(currentLogin);
         Finca result = fincaRepository.save(finca);
